@@ -5,7 +5,6 @@ import AudioPlayer from "@/components/AudioPlayer";
 import IntroEnvelope from "@/components/IntroEnvelope";
 import PhotoFrame from "@/components/PhotoFrame";
 import NileScene from "@/components/NileScene";
-import ScratchCard from "@/components/ScratchCard";
 import JourneySteps from "@/components/JourneySteps";
 import CountdownTimer from "@/components/CountdownTimer";
 
@@ -83,9 +82,6 @@ export default function WeddingPage() {
 
           {/* ================= PHOTO & PRAYER SECTION ================= */}
           <PhotoFrame />
-
-          {/* ================= SCRATCH CARD (70% THRESHOLD) ================= */}
-          <ScratchCard />
 
           {/* ================= NILE SCENE (BOAT TO VILLA) ================= */}
           <NileScene />
