@@ -11,10 +11,10 @@ interface AudioPlayerProps {
 
 export const TRACKS = [
   {
-    id: "ahla-qarar",
-    name: "أحلى قرار | عمرو جابر",
-    subtitle: "يا أحلى قرار أنا أخدته.. يا عمر جديد 🤍",
-    src: "/audio/ahla-qarar.mp3",
+    id: "wedding-song",
+    name: "أغنية حفل الزفاف | محمد وياسمين",
+    subtitle: "الموسيقى الرسمية لليلة العمر 🤍✨",
+    src: "/audio/wedding-theme.mp3",
     type: "audio/mp3",
   },
   {
