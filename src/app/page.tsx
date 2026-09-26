@@ -98,7 +98,7 @@ export default function WeddingPage() {
             <div className="footer-heart">♡</div>
             <div className="note">
               وجودكم هو أجمل جزء في يومنا،
-              <br />
+
               ونتمنى أن تشاركونا هذه اللحظة المميزة.
             </div>
           </section>
