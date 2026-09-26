@@ -59,7 +59,7 @@ export default function RootLayout({
       dir="rtl"
       className={`${amiri.variable} ${alexandria.variable} ${playfair.variable} ${greatVibes.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#120F0D] text-[#524436] selection:bg-[#c5a059] selection:text-white">
+      <body className="min-h-full bg-[#f2ede4] text-[#5b5748] selection:bg-[#98713b] selection:text-white">
         {children}
       </body>
     </html>

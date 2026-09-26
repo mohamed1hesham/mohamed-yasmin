@@ -5,7 +5,24 @@
     --font-amiri: 'Amiri', serif;
     --font-alexandria: 'Alexandria', sans-serif;
     --font-playfair: 'Playfair Display', serif;
-    --font-vibes: 'Great Vibes', cursive;
+    --font-great-vibes: 'Great Vibes', cursive;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #f2ede4;
+    color: #5b5748;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
   }
 }
 
@@ -14,47 +31,179 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #1a1715;
+  background: #eee4d2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #8e6d38;
+  background: #bba06e;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c5a059;
+  background: #98713b;
 }
 
-/* Luxury animations */
-@keyframes goldShimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.text-gold-shimmer {
-  background: linear-gradient(
-    90deg,
-    #98713b 0%,
-    #d4af37 25%,
-    #fff3d1 50%,
-    #d4af37 75%,
-    #98713b 100%
+/* ================= EXACT INTRO OVERLAY ================= */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+    circle at 50% 45%,
+    #fffaf1 0%,
+    #eee4d2 55%,
+    #ded0b8 100%
   );
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: goldShimmer 6s linear infinite;
+  transition: opacity 1.3s ease, visibility 1.3s ease;
 }
 
-.text-gold-light {
-  background: linear-gradient(135deg, #f5e4bd 0%, #d8b467 50%, #ae8433 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.intro.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-content {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  animation: introAppear 1.5s ease forwards;
+}
+
+@keyframes introAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.intro-small {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: #8c7755;
+  margin-bottom: 22px;
+}
+
+.intro-names {
+  font-size: 52px;
+  font-style: italic;
+  color: #98713b;
+  line-height: 1;
+}
+
+.intro-and {
+  font-size: 34px;
+  margin: 14px 0;
+  color: #ad8c55;
+}
+
+.intro-line {
+  width: 0;
+  height: 1px;
+  background: #b69a69;
+  margin: 25px auto;
+  animation: growLine 1.4s 1s forwards;
+}
+
+@keyframes growLine {
+  to {
+    width: 150px;
+  }
+}
+
+.start-btn {
+  border: 1px solid #a88b59;
+  background: rgba(255, 255, 255, 0.45);
+  color: #806337;
+  padding: 14px 32px;
+  border-radius: 40px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.start-btn:hover {
+  background: #92703d;
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= EXACT MAIN CARD & LAYOUT ================= */
+.page {
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+  padding: 14px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fcfaf5, #f7f1e7);
+  border: 1px solid #bba06e;
+  box-shadow: 0 20px 55px rgba(74, 61, 37, 0.13);
+  padding: 38px 22px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(180, 150, 95, 0.2);
+  pointer-events: none;
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(216, 172, 95, 0.22), transparent 70%);
+  animation: glowPulse 5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+.hero-top {
+  position: relative;
+  z-index: 2;
+  font-size: 28px;
+  color: #a58959;
+  letter-spacing: 9px;
+  animation: softFloat 4s ease-in-out infinite;
 }
 
 @keyframes softFloat {
@@ -62,191 +211,555 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-7px);
   }
 }
 
-.animate-soft-float {
-  animation: softFloat 4s ease-in-out infinite;
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.5;
-    transform: scale(0.96);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.06);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 5s ease-in-out infinite;
-}
-
-/* River Scene Keyframes */
-@keyframes sunSway {
-  0%, 100% {
-    transform: translate(-50%, 0);
-  }
-  50% {
-    transform: translate(-50%, 14px);
-  }
-}
-
-@keyframes cloudDriftOne {
-  0% {
-    transform: translateX(-150px);
-  }
-  100% {
-    transform: translateX(750px);
-  }
-}
-
-@keyframes cloudDriftTwo {
-  0% {
-    transform: translateX(-220px);
-  }
-  100% {
-    transform: translateX(750px);
-  }
-}
-
-@keyframes boatToVilla {
-  0% {
-    /* Departure from Riverbank Shore */
-    left: 6%;
-    bottom: 12px;
-    transform: scale(1.18) rotate(3deg);
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  25% {
-    /* Cruising across the open Nile */
-    left: 25%;
-    bottom: 24px;
-    transform: scale(1.05) rotate(-2deg);
-    opacity: 1;
-  }
-  50% {
-    /* Approaching Island Channel */
-    left: 40%;
-    bottom: 38px;
-    transform: scale(0.92) rotate(2deg);
-    opacity: 1;
-  }
-  68% {
-    /* Reaching Villa La Riva Pier Dock */
-    left: 49%;
-    bottom: 48px;
-    transform: scale(0.82) rotate(0deg);
-    opacity: 1;
-  }
-  74%, 86% {
-    /* DOCKED at Villa La Riva Pier (Guests arrival) */
-    left: 49.5%;
-    bottom: 48px;
-    transform: scale(0.82) translateY(-2px) rotate(0.5deg);
-    opacity: 1;
-  }
-  93% {
-    /* Departing from pier for next guests */
-    left: 58%;
-    bottom: 38px;
-    transform: scale(0.88) rotate(-4deg);
-    opacity: 0.85;
-  }
-  100% {
-    /* Returning loop */
-    left: 95%;
-    bottom: 16px;
-    transform: scale(1.15) rotate(-1deg);
-    opacity: 0;
-  }
-}
-
-.animate-boat-to-villa {
-  animation: boatToVilla 18s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-@keyframes waterRipples {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 40px 0;
-  }
-}
-
-@keyframes birdFlock {
-  0% {
-    transform: translate(-60px, 0);
-  }
-  50% {
-    transform: translate(320px, -20px);
-  }
-  100% {
-    transform: translate(750px, 8px);
-  }
-}
-
-.animate-sun {
-  animation: sunSway 8s ease-in-out infinite;
-}
-
-.animate-cloud-1 {
-  animation: cloudDriftOne 32s linear infinite;
-}
-
-.animate-cloud-2 {
-  animation: cloudDriftTwo 42s linear infinite 5s;
-}
-
-.animate-boat {
-  animation: boatSailing 22s linear infinite;
-}
-
-.animate-water {
-  animation: waterRipples 5s linear infinite;
-}
-
-.animate-birds {
-  animation: birdFlock 20s linear infinite;
-}
-
-/* Luxury card borders and frames */
-.wedding-card {
+.welcome {
   position: relative;
-  background: linear-gradient(180deg, #fffefb 0%, #faf5ea 50%, #f4ebd8 100%);
-  border: 1px solid #d4af67;
-  box-shadow: 0 25px 60px rgba(58, 44, 23, 0.16), 0 0 0 1px rgba(212, 175, 103, 0.2);
+  z-index: 2;
+  margin-top: 25px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #80704f;
 }
 
-.wedding-card-inner {
+.names {
   position: relative;
+  z-index: 2;
+  margin-top: 23px;
+  font-size: 58px;
+  font-style: italic;
+  color: #98723c;
+  line-height: 0.95;
+  animation: namesReveal 1.5s ease;
 }
 
-.wedding-card-inner::before {
+@keyframes namesReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.names .and {
+  font-size: 38px;
+  margin: 14px;
+  color: #a88854;
+}
+
+.gold-line {
+  width: 170px;
+  height: 1px;
+  background: #bba06e;
+  margin: 30px auto;
+}
+
+.details {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #d9ccb3;
+  border-bottom: 1px solid #d9ccb3;
+  padding: 20px 0;
+}
+
+.detail {
+  width: 33%;
+  transition: 0.4s;
+}
+
+.detail:hover {
+  transform: translateY(-6px);
+}
+
+.icon {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 7px;
+}
+
+.detail b {
+  font-size: 18px;
+}
+
+/* ================= PHOTO & PRAYER ================= */
+.intro-photo {
+  width: 100%;
+  max-width: 500px;
+  margin: 35px auto 20px;
+  padding: 6px;
+  border: 1px solid #bba06e;
+  border-radius: 18px;
+  background: #faf6ed;
+  box-shadow: 0 12px 30px rgba(74, 61, 37, 0.15);
+  overflow: hidden;
+  animation: introPhotoAppear 1.2s ease both;
+}
+
+.intro-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.intro-photo:hover img {
+  transform: scale(1.025);
+  filter: brightness(1.04);
+}
+
+@keyframes introPhotoAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.prayer {
+  padding: 24px 14px;
+  border-top: 1px solid #d9ccb3;
+  border-bottom: 1px solid #d9ccb3;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  line-height: 2;
+}
+
+.quote {
+  display: block;
+  font-size: 34px;
+  color: #b49661;
+  margin-bottom: 5px;
+}
+
+/* ================= NILE SCENE ================= */
+.scene {
+  position: relative;
+  height: 310px;
+  margin: 35px -22px 0;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    #d8bd8d 0%,
+    #e6cfa4 35%,
+    #bda778 51%,
+    #7d8876 52%,
+    #536b60 100%
+  );
+}
+
+.scene-sun {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  left: 50%;
+  top: 48px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, #ffe5a9, #e7ba70);
+  box-shadow: 0 0 55px rgba(255, 213, 137, 0.8);
+  animation: sunMove 7s ease-in-out infinite;
+}
+
+@keyframes sunMove {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(16px);
+  }
+}
+
+.cloud {
+  position: absolute;
+  width: 110px;
+  height: 25px;
+  border-radius: 50px;
+  background: rgba(255, 248, 226, 0.3);
+  filter: blur(2px);
+  animation: cloudMove linear infinite;
+}
+
+.cloud.one {
+  top: 50px;
+  left: -130px;
+  animation-duration: 28s;
+}
+
+.cloud.two {
+  top: 95px;
+  left: -200px;
+  animation-duration: 36s;
+  animation-delay: 6s;
+}
+
+@keyframes cloudMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(850px);
+  }
+}
+
+.island {
+  position: absolute;
+  left: 50%;
+  bottom: 75px;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 58px;
+  border-radius: 50% 50% 45% 45%;
+  background: linear-gradient(to bottom, #64785b, #41594b);
+  box-shadow: 0 15px 20px rgba(40, 45, 35, 0.25);
+}
+
+.grass {
+  position: absolute;
+  bottom: 117px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 35px;
+  background: repeating-linear-gradient(
+    80deg,
+    #567052 0px,
+    #567052 4px,
+    #71825b 4px,
+    #71825b 8px
+  );
+  border-radius: 50%;
+}
+
+.villa {
+  position: absolute;
+  left: 50%;
+  bottom: 115px;
+  transform: translateX(-50%);
+  width: 125px;
+  height: 75px;
+  background: linear-gradient(135deg, #f7eee0, #d7c5a6);
+  border-radius: 5px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.18);
+}
+
+.villa::before {
   content: "";
   position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(186, 150, 85, 0.35);
-  pointer-events: none;
-  border-radius: 12px;
+  top: -38px;
+  left: -12px;
+  width: 0;
+  height: 0;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-bottom: 45px solid #765c3d;
 }
 
-.ornate-corner {
+.villa::after {
+  content: "";
   position: absolute;
-  width: 24px;
-  height: 24px;
-  border-color: #c5a059;
-  pointer-events: none;
+  width: 23px;
+  height: 40px;
+  bottom: 0;
+  left: 51px;
+  background: #806346;
+  border-radius: 3px 3px 0 0;
 }
 
-/* Equalizer Bars Animation */
+.window {
+  position: absolute;
+  width: 20px;
+  height: 22px;
+  bottom: 32px;
+  background: linear-gradient(
+    90deg,
+    #78929a 48%,
+    #d5bd87 49%,
+    #d5bd87 52%,
+    #78929a 53%
+  );
+  border: 1px solid #745e45;
+}
+
+.window.one {
+  left: 15px;
+}
+
+.window.two {
+  right: 15px;
+}
+
+.tree {
+  position: absolute;
+  bottom: 112px;
+  width: 13px;
+  height: 50px;
+  background: #5c4a35;
+  border-radius: 5px;
+}
+
+.tree::before {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  left: -21px;
+  top: -37px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #74845b, #405744);
+}
+
+.tree.one {
+  left: 20%;
+}
+
+.tree.two {
+  right: 20%;
+}
+
+.water {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.16) 0px,
+    rgba(255, 255, 255, 0.16) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+  animation: waterMove 6s linear infinite;
+}
+
+@keyframes waterMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(20px);
+  }
+}
+
+.bird {
+  position: absolute;
+  color: #4f5348;
+  font-size: 18px;
+  letter-spacing: -7px;
+  opacity: 0.65;
+  animation: birdFly linear infinite;
+}
+
+.bird.one {
+  top: 45px;
+  left: -50px;
+  animation-duration: 18s;
+}
+
+.bird.two {
+  top: 85px;
+  left: -100px;
+  animation-duration: 23s;
+  animation-delay: 4s;
+}
+
+@keyframes birdFly {
+  from {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(380px) translateY(-18px);
+  }
+  to {
+    transform: translateX(850px) translateY(4px);
+  }
+}
+
+/* Boat sailing towards Villa La Riva pier, pausing, and sailing */
+.boat {
+  position: absolute;
+  bottom: 45px;
+  left: -100px;
+  font-size: 40px;
+  filter: drop-shadow(0 7px 4px rgba(0, 0, 0, 0.2));
+  animation: boatRideToVilla 16s ease-in-out infinite;
+  z-index: 10;
+  cursor: pointer;
+}
+
+@keyframes boatRideToVilla {
+  0% {
+    left: -80px;
+    bottom: 35px;
+    transform: scale(1.1) rotate(0deg);
+    opacity: 0.8;
+  }
+  15% {
+    opacity: 1;
+  }
+  42% {
+    left: 44%;
+    bottom: 58px;
+    transform: scale(0.85) rotate(-2deg);
+  }
+  50%, 65% {
+    /* Docked at Villa La Riva */
+    left: 45%;
+    bottom: 58px;
+    transform: scale(0.85) translateY(-2px) rotate(1deg);
+  }
+  85% {
+    left: 78%;
+    bottom: 40px;
+    transform: scale(1.05) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    bottom: 35px;
+    transform: scale(1.1) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.atmosphere {
+  padding: 25px 5px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* ================= ROUTE ================= */
+.route {
+  margin-top: 30px;
+  padding: 25px 17px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #eee3d0, #e5d6bd);
+  box-shadow: inset 0 0 25px rgba(120, 90, 45, 0.05);
+}
+
+.route-title {
+  color: #97733d;
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+.route-sub {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.step {
+  background: rgba(255, 250, 243, 0.85);
+  border-radius: 13px;
+  padding: 16px;
+  margin: 12px 0;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.9;
+  transition: 0.4s;
+  text-align: right;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.map-button {
+  display: block;
+  text-decoration: none;
+  background: linear-gradient(135deg, #9b7743, #765b35);
+  color: white;
+  padding: 15px;
+  border-radius: 30px;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  box-shadow: 0 8px 20px rgba(100, 75, 35, 0.2);
+  transition: 0.4s;
+}
+
+.map-button:hover {
+  transform: translateY(-4px);
+  color: white;
+}
+
+/* ================= TIME & COUNTDOWN ================= */
+.time-section {
+  margin-top: 10px;
+}
+
+.section-title {
+  margin: 48px 0 20px;
+  color: #96723e;
+  font-size: 28px;
+  font-style: italic;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.count-box {
+  min-width: 65px;
+  padding: 12px 5px;
+  border-radius: 13px;
+  background: #eee3d0;
+  box-shadow: inset 0 0 10px rgba(120, 90, 45, 0.05);
+}
+
+.count-number {
+  display: block;
+  color: #97733d;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.count-label {
+  font-family: Arial, sans-serif;
+  color: #777;
+  font-size: 11px;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  margin-top: 45px;
+  font-size: 27px;
+  color: #99743d;
+}
+
+.footer-heart {
+  font-size: 30px;
+  color: #99743d;
+  margin: 12px;
+}
+
+.note {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.9;
+}
+
+/* Equalizer Bars */
 @keyframes barBounce1 {
   0%, 100% { height: 4px; }
   50% { height: 18px; }
@@ -259,7 +772,41 @@
   0%, 100% { height: 8px; }
   50% { height: 22px; }
 }
-
 .bar-1 { animation: barBounce1 0.8s ease-in-out infinite; }
 .bar-2 { animation: barBounce2 0.7s ease-in-out infinite; }
 .bar-3 { animation: barBounce3 0.9s ease-in-out infinite; }
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .page {
+    padding: 7px;
+  }
+  .card {
+    padding: 30px 17px;
+  }
+  .names {
+    font-size: 46px;
+  }
+  .intro-names {
+    font-size: 42px;
+  }
+  .hero {
+    min-height: 480px;
+  }
+  .scene {
+    margin-left: -17px;
+    margin-right: -17px;
+  }
+  .island {
+    width: 225px;
+  }
+  .grass {
+    width: 215px;
+  }
+  .count-box {
+    min-width: 56px;
+  }
+  .intro-photo {
+    max-width: 100%;
+  }
+}
