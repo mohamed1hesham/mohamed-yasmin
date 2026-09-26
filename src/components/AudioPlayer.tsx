@@ -18,6 +18,13 @@ export const TRACKS = [
     type: "audio/mp3",
   },
   {
+    id: "special-track",
+    name: "أغنية خاصة | إهداء الزفاف",
+    subtitle: "لحن وموسيقى خاصة للمناسبة ✨",
+    src: "/audio/special-song.mp3",
+    type: "audio/mp3",
+  },
+  {
     id: "canon",
     name: "بيانو ملكي | Canon in D",
     subtitle: "موسيقى كلاسيكية رومانسية",

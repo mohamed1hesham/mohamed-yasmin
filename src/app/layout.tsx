@@ -29,7 +29,7 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://mohamed-yasmin-wedding.world"),
   title: "Mohamed & Yasmin | زفاف محمد وياسمين",
   description: "دعوة خاصة لحضور حفل زفاف محمد وياسمين في Villa La Riva على ضفاف النيل - 31 أكتوبر 2026",
   keywords: ["wedding", "Mohamed & Yasmin", "Villa La Riva", "زفاف", "دعوة فرح", "محمد وياسمين"],
@@ -40,11 +40,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico" },
+      { url: "/favicon.ico?v=5", sizes: "any" },
+      { url: "/icon.png?v=5", type: "image/png", sizes: "64x64" },
+      { url: "/icon.svg?v=5", type: "image/svg+xml" },
     ],
-    apple: "/icon.svg",
-    shortcut: "/icon.svg",
+    shortcut: "/favicon.ico?v=5",
+    apple: [
+      { url: "/apple-icon.png?v=5", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
@@ -59,6 +62,12 @@ export default function RootLayout({
       dir="rtl"
       className={`${amiri.variable} ${alexandria.variable} ${playfair.variable} ${greatVibes.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="icon" href="/favicon.ico?v=5" sizes="any" />
+        <link rel="icon" href="/icon.png?v=5" type="image/png" sizes="64x64" />
+        <link rel="icon" href="/icon.svg?v=5" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-icon.png?v=5" />
+      </head>
       <body className="min-h-full bg-[#f2ede4] text-[#5b5748] selection:bg-[#98713b] selection:text-white">
         {children}
       </body>
