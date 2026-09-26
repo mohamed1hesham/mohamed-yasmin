@@ -73,14 +73,7 @@ export default function AudioPlayer({ isPlaying, setIsPlaying, audioRef }: Audio
 
           {/* Song Info & Sound Waves */}
           <div className="flex items-center gap-2 px-1 select-none">
-            <div className="flex flex-col">
-              <span className="text-xs font-bold text-[#806337]">
-                أغنية حفل الزفاف
-              </span>
-              <span className="text-[10px] text-[#9c8466]">
-                {isPlaying ? "شغالة الآن 🎵" : "اضغط للتشغيل"}
-              </span>
-            </div>
+
 
             {isPlaying ? (
               <div className="flex items-end gap-0.5 h-3.5 w-3.5 mr-1">
