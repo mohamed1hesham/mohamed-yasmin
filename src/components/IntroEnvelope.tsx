@@ -75,7 +75,7 @@ export default function IntroEnvelope({ onStart }: IntroEnvelopeProps) {
           aria-label="ابدأ الرحلة"
         >
           <span>ابدأ الرحلة</span>
-          <span>✨</span>
+          <span className="text-2xl inline-block -mt-0.5">✨</span>
         </button>
       </div>
     </div>

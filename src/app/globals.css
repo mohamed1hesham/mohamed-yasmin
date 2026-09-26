@@ -118,26 +118,29 @@
 }
 
 .start-btn {
-  border: 1px solid #a88b59;
-  background: rgba(255, 255, 255, 0.45);
+  border: 1.5px solid #a88b59;
+  background: rgba(255, 255, 255, 0.55);
   color: #806337;
-  padding: 14px 32px;
-  border-radius: 40px;
+  padding: 18px 48px;
+  border-radius: 50px;
   font-family: Arial, sans-serif;
-  font-size: 15px;
+  font-size: 22px;
+  font-weight: 700;
   cursor: pointer;
   transition: 0.4s;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
+  box-shadow: 0 4px 18px rgba(168, 139, 89, 0.15);
+  letter-spacing: 0.5px;
 }
 
 .start-btn:hover {
   background: #92703d;
   color: white;
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(146, 112, 61, 0.25);
 }
 
 /* ================= EXACT MAIN CARD & LAYOUT ================= */
@@ -808,5 +811,9 @@
   }
   .intro-photo {
     max-width: 100%;
+  }
+  .start-btn {
+    font-size: 19px;
+    padding: 16px 36px;
   }
 }
