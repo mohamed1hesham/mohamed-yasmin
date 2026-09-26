@@ -60,14 +60,12 @@ export default function NileScene() {
       {/* Atmospheric Wedding Story */}
       <div className="atmosphere text-center">
         ليلة تجمعنا على ضفاف النيل،
-        <br />
+
         وسط نسيم المساء وألوان الغروب،
-        <br />
+
         وفي أجواء هادئة تليق ببداية أجمل فصل في حكايتنا. ✨
-        <br />
-        <br />
+
         حضوركم هو أجمل ما يكتمل به هذا اليوم،
-        <br />
         وبوجودكم تصبح اللحظة ذكرى لا تُنسى. ❤️
       </div>
     </section>

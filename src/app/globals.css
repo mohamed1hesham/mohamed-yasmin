@@ -675,7 +675,7 @@
   font-size: 15px;
   line-height: 1.9;
   transition: 0.4s;
-  text-align: right;
+  text-align: center;
 }
 
 .step:hover {

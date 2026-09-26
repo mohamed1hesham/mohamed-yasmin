@@ -21,35 +21,35 @@ export default function JourneySteps() {
 
       <div className="route-sub">
         تبدأ رحلتكم من نقطة الركوب،
-        <br />
+
         ومن هناك يأخذكم المركب إلى الجزيرة
-        <br />
+
         حيث تنتظركم Villa La Riva.
       </div>
 
-      <div className="step">
+      <div className="step text-center">
+
         📍 <b>نقطة الركوب</b>
         <br />
         آخر شارع البحر الأعظم،
-        <br />
+
         بعد مترو المنيب بحوالي 500 متر،
-        <br />
+
         تحت كوبري الأصجبي بجوار مدخل حدائق الري.
       </div>
 
-      <div className="step">
+      <div className="step text-center">
         ⚠️ <b>مهم جدًا</b>
         <br />
         لف من آخر الكوبري،
-        <br />
+
         مش من تحت الكوبري.
       </div>
 
-      <div className="step">
+      <div className="step text-center">
         🚤 <b>المركب متوفر طوال المناسبة</b>
         <br />
         مفيش ميعاد محدد للمركب،
-        <br />
         وهو بيتحرك رايح جاي تقريبًا كل 5 دقائق.
       </div>
 
